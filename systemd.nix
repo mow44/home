@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  sysemd.user = {
+  systemd.user = {
     startServices = true;
 
     services.set-wallpaper = {
