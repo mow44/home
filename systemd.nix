@@ -10,7 +10,9 @@
       };
 
       Service = {
-        ExecStart = "${pkgs.hsetroot}/bin/hsetroot -fill /home/a/NixOS-B550/wallpapers/1.jpg";
+        ExecStart = ''
+          ${pkgs.hsetroot}/bin/hsetroot -fill "$(find ~/NixOS-B550/wallpapers/ -type f | shuf -n 1)"
+        '';
       };
 
       Install = {
