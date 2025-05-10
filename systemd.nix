@@ -11,7 +11,7 @@
 
       Service = {
         ExecStart = ''
-          ${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ~/NixOS-B550/wallpapers/ -type f | ${pkgs.busybox}/bin/shuf -n 1)"
+          ${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find /home/a/NixOS-B550/wallpapers/ -type f | ${pkgs.busybox}/bin/shuf -n 1)"
         '';
       };
 
