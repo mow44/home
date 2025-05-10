@@ -1,7 +1,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Gruvbox Dark";
+    themeFile = "gruvbox-dark";
     font = {
       name = "DroidSansMNerdFontMono";
       size = 12;
