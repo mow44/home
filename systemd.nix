@@ -10,12 +10,15 @@
       };
 
       Service = {
-        # ExecStart = ''
-        #   ${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find /home/a/NixOS-B550/wallpapers/ -type f | ${pkgs.busybox}/bin/shuf -n 1)"
-        # '';
+        Type = "oneshot";
         ExecStart = ''
-          ${pkgs.hsetroot}/bin/hsetroot -fill /home/a/NixOS-B550/wallpapers/2.jpg
+          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find /home/a/NixOS-B550/wallpapers/ -type f | ${pkgs.busybox}/bin/shuf -n 1)"'
         '';
+
+        # Works
+        # ExecStart = ''
+        #   ${pkgs.hsetroot}/bin/hsetroot -fill /home/a/NixOS-B550/wallpapers/2.jpg
+        # '';
       };
 
       Install = {
