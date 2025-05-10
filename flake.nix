@@ -26,6 +26,7 @@
                   ./lf.nix
                   ./bash.nix
                   ./helix.nix
+                  ./kitty.nix
                 ];
                 home = {
                   username = username;
