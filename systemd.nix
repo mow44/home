@@ -13,7 +13,7 @@
         Type = "oneshot";
         ExecStartPre = "${pkgs.coreutils}/bin/echo 'wallpapersDir is: ${wallpapersDir}'";
         ExecStart = ''
-          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find /home/a/NixOS-home/wallpapers -type f | ${pkgs.busybox}/bin/shuf -n 1)"'
+          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ${wallpapersDir} -type f | ${pkgs.busybox}/bin/shuf -n 1)"'
         '';
       };
 
