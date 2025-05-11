@@ -5,43 +5,50 @@
     {
       self,
     }:
-    let
-      wallpapersDir = "./wallpapers";
-    in
     {
-      makeHomeModule = inputs: username: stateVersion: {
-        imports = [
-          inputs.home-manager.nixosModules.home-manager
+      makeHomeModule =
+        inputs: username: stateVersion:
+        let
+          wallpapersDir = inputs.nixpkgs.legacyPackages.x86_64-linux.linkFarm "wallpapers" (
+            builtins.mapAttrsToList (name: _: {
+              inherit name;
+              path = ./wallpapers/${name};
+            }) (builtins.readDir ./wallpapers)
+          );
+        in
+        {
+          imports = [
+            inputs.home-manager.nixosModules.home-manager
 
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
 
-              extraSpecialArgs = {
-                inherit inputs wallpapersDir;
-              };
+                extraSpecialArgs = {
+                  inherit inputs wallpapersDir;
+                };
 
-              users.${username} = {
-                imports = [
-                  ./home.nix
-                  ./git.nix
-                  ./lf.nix
-                  ./bash.nix
-                  ./helix.nix
-                  ./kitty.nix
-                  ./systemd.nix
-                  ./dunst.nix
-                ];
-                home = {
-                  username = username;
-                  homeDirectory = "/home/${username}";
-                  stateVersion = stateVersion;
+                users.${username} = {
+                  imports = [
+                    ./home.nix
+                    ./git.nix
+                    ./lf.nix
+                    ./bash.nix
+                    ./helix.nix
+                    ./kitty.nix
+                    ./systemd.nix
+                    ./dunst.nix
+                  ];
+                  home = {
+                    username = username;
+                    homeDirectory = "/home/${username}";
+                    stateVersion = stateVersion;
+                  };
                 };
               };
-            };
-          }
-        ];
-      };
+            }
+          ];
+        };
     };
 }
