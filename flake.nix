@@ -5,6 +5,9 @@
     {
       self,
     }:
+    let
+      wallpapersDir = "./wallpapers";
+    in
     {
       makeHomeModule = inputs: username: stateVersion: {
         imports = [
@@ -16,7 +19,7 @@
               useUserPackages = true;
 
               extraSpecialArgs = {
-                inherit inputs;
+                inherit inputs wallpapersDir;
               };
 
               users.${username} = {

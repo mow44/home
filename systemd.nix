@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, wallpapersDir, ... }:
 {
   systemd.user = {
     startServices = true;
@@ -12,13 +12,8 @@
       Service = {
         Type = "oneshot";
         ExecStart = ''
-          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find /home/a/NixOS-B550/wallpapers/ -type f | ${pkgs.busybox}/bin/shuf -n 1)"'
+          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ${wallpapersDir} -type f | ${pkgs.busybox}/bin/shuf -n 1)"'
         '';
-
-        # Works
-        # ExecStart = ''
-        #   ${pkgs.hsetroot}/bin/hsetroot -fill /home/a/NixOS-B550/wallpapers/2.jpg
-        # '';
       };
 
       Install = {
