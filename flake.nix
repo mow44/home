@@ -9,8 +9,9 @@
       makeHomeModule =
         inputs: username: stateVersion:
         let
-          wallpapersDir = inputs.nixpkgs.legacyPackages.x86_64-linux.linkFarm "wallpapers" (
-            builtins.mapAttrsToList (name: _: {
+          pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+          wallpapersDir = pkgs.linkFarm "wallpapers" (
+            pkgs.lib.mapAttrsToList (name: _: {
               inherit name;
               path = ./wallpapers/${name};
             }) (builtins.readDir ./wallpapers)
