@@ -28,6 +28,7 @@
                   ./helix.nix
                   ./kitty.nix
                   ./systemd.nix
+                  ./dunst.nix
                 ];
                 home = {
                   username = username;
