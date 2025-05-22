@@ -3,7 +3,8 @@
     enable = true;
     themeFile = "gruvbox-dark";
     font = {
-      name = "DroidSansMNerdFontMono";
+      # name = "DroidSansMNerdFontMono";
+      name = "AtkynsonMono Nerd Font Mono";
       size = 12;
     };
     settings = {

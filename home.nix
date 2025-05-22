@@ -43,6 +43,7 @@
 
       pavucontrol
       polkit
+      python312Packages.adblock # qutebrowser adblock
 
       qalculate-gtk
       qbittorrent

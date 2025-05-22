@@ -1,7 +1,7 @@
 {
-  inputs,
   pkgs,
   wallpapersDir,
+  slstatus,
   ...
 }:
 {
@@ -26,23 +26,23 @@
       };
     };
 
-    services.set-refresh-rate = {
-      Unit = {
-        After = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
-      };
+    # services.set-refresh-rate = {
+    #   Unit = {
+    #     After = [ "graphical-session.target" ];
+    #     PartOf = [ "graphical-session.target" ];
+    #   };
 
-      Service = {
-        Type = "oneshot";
-        ExecStart = ''
-          ${pkgs.runtimeShell} -c '${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75'
-        '';
-      };
+    #   Service = {
+    #     Type = "oneshot";
+    #     ExecStart = ''
+    #       ${pkgs.runtimeShell} -c '${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75'
+    #     '';
+    #   };
 
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
+    #   Install = {
+    #     WantedBy = [ "graphical-session.target" ];
+    #   };
+    # };
 
     services.start-slstatus = {
       Unit = {
@@ -53,7 +53,7 @@
       Service = {
         Type = "simple";
         ExecStart = ''
-          ${inputs.slstatus.defaultPackage.x86_64-linux}/bin/slstatus
+          ${slstatus.defaultPackage.x86_64-linux}/bin/slstatus
         '';
         Restart = "always";
       };

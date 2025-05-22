@@ -1,15 +1,38 @@
 {
   description = "home-manager";
 
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helix = {
+      url = "github:helix-editor/helix/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    slstatus = {
+      url = "github:mow44/slstatus/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   outputs =
     {
       self,
+      nixpkgs,
+      home-manager,
+      helix,
+      slstatus,
     }:
     {
       makeHomeModule =
-        inputs: username: stateVersion:
+        username: stateVersion:
         let
-          pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           wallpapersDir = pkgs.linkFarm "wallpapers" (
             pkgs.lib.mapAttrsToList (name: _: {
               inherit name;
@@ -19,7 +42,7 @@
         in
         {
           imports = [
-            inputs.home-manager.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
 
             {
               home-manager = {
@@ -27,7 +50,7 @@
                 useUserPackages = true;
 
                 extraSpecialArgs = {
-                  inherit inputs wallpapersDir;
+                  inherit wallpapersDir helix slstatus;
                 };
 
                 users.${username} = {
@@ -40,6 +63,8 @@
                     ./kitty.nix
                     ./systemd.nix
                     ./dunst.nix
+                    ./qutebrowser.nix
+                    ./syncthing.nix
                   ];
                   home = {
                     username = username;
@@ -48,6 +73,10 @@
                   };
                 };
               };
+
+              environment.systemPackages = [
+                home-manager.packages.x86_64-linux.home-manager
+              ];
             }
           ];
         };

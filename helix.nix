@@ -1,8 +1,8 @@
-{ inputs, pkgs, ... }:
+{ pkgs, helix, ... }:
 {
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages."${pkgs.system}".helix;
+    package = helix.packages."${pkgs.system}".helix;
     extraPackages = [
       pkgs.rustup
       pkgs.gcc # for rust lsp in helix
