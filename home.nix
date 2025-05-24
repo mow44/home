@@ -8,67 +8,46 @@
   home = {
     packages = with pkgs; [
       alsa-utils
-
-      bat
       bashmount
-      bottom
+      bat
       bluetuith
-
+      bottom
       clinfo
-      corefonts
       cmus
-
+      corefonts
       drawio
-
       eza
-
+      feh
       ffmpeg_7-full
       fselect
-      feh
-
-      htop
       hsetroot
-
-      keepassxc
-
-      lm_sensors
-      librewolf
-      libreoffice-qt
-
-      maim
-
-      nix-output-monitor
-
-      obs-studio
-
-      pavucontrol
-      polkit
-      python312Packages.adblock # qutebrowser adblock
-
-      qalculate-gtk
-      qbittorrent
-
-      telegram-desktop
-
-      v2raya
-      vlc
-      vistafonts
-      vesktop
-
-      walk
-
-      xclip
-
+      htop
       hunspell
       hunspellDicts.en_US
       hunspellDicts.ru_RU
-
-      steam
-      steam-tui
-      steam-run
-      steamcmd
-
+      keepassxc
       krita
+      libreoffice-qt
+      lm_sensors
+      maim
+      nix-output-monitor
+      obs-studio
+      pavucontrol
+      polkit
+      python312Packages.adblock # qutebrowser adblock
+      qalculate-gtk
+      qbittorrent
+      steam
+      steam-run
+      steam-tui
+      steamcmd
+      telegram-desktop
+      v2raya
+      vesktop
+      vistafonts
+      vlc
+      walk
+      xclip
     ];
   };
 }
