@@ -10,14 +10,14 @@ in
   programs.qutebrowser = {
     enable = true;
 
-    settings = {
-      keyBindings = {
-        normal = {
-          "<Ctrl-m>" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
-          "<Ctrl-Shift-m>" = "spawn ${pkgs.mpv}/bin/mpv {url}";
-        };
+    keyBindings = {
+      normal = {
+        "<Ctrl-m>" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
+        "<Ctrl-Shift-m>" = "spawn ${pkgs.mpv}/bin/mpv {url}";
       };
+    };
 
+    settings = {
       # https://github.com/qutebrowser/qutebrowser/issues/5378
       # https://wiki.archlinux.org/title/Chromium#Force_GPU_acceleration
       qt.args = [
