@@ -35,7 +35,7 @@
 
         sort = "no";
 
-        font = "DroidSansMNerdFontMono 12";
+        font = "AtkynsonMono Nerd Font Mono 12"; # TODO change font
 
         line_height = 3;
 
