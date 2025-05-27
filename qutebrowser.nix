@@ -12,8 +12,8 @@ in
 
     keyBindings = {
       normal = {
-        "<Ctrl-m>" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
-        "<Ctrl-Shift-m>" = "spawn ${pkgs.mpv}/bin/mpv {url}";
+        "<Ctrl-m>" = "hint links spawn ${pkgs.mpv}/bin/mpv -volume=30 {hint-url}";
+        "<Ctrl-Shift-m>" = "spawn ${pkgs.mpv}/bin/mpv -volume=30 {url}";
       };
     };
 
