@@ -6,6 +6,10 @@
   programs.home-manager.enable = true;
 
   home = {
+    file.".config/uxn/theme".text = ''
+      0a6f 05cf 0caf
+    '';
+
     packages = with pkgs; [
       alsa-utils
       bashmount

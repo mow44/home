@@ -14,6 +14,7 @@
         PartOf = [ "graphical-session.target" ];
       };
 
+      # TODO call script from scripts-flake. and make flake for wallpapers so it will be accessable from scripts-flake
       Service = {
         Type = "oneshot";
         ExecStart = ''
