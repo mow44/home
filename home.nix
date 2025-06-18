@@ -7,7 +7,7 @@
 
   home = {
     file.".config/uxn/theme".text = ''
-      0a6f 05cf 0caf
+      0Z1Y2X
     '';
 
     packages = with pkgs; [
