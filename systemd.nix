@@ -1,6 +1,6 @@
 {
-  system,
   pkgs,
+  system,
   wallpapersDir,
   slstatus,
   ...
