@@ -30,9 +30,10 @@
     }:
     {
       makeHomeModule =
-        username: stateVersion:
+        username: stateVersion: system:
         let
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = import nixpkgs { inherit system; };
+
           wallpapersDir = pkgs.linkFarm "wallpapers" (
             pkgs.lib.mapAttrsToList (name: _: {
               inherit name;
@@ -50,7 +51,12 @@
                 useUserPackages = true;
 
                 extraSpecialArgs = {
-                  inherit wallpapersDir helix slstatus;
+                  inherit
+                    system
+                    wallpapersDir
+                    helix
+                    slstatus
+                    ;
                 };
 
                 users.${username} = {
@@ -75,7 +81,7 @@
               };
 
               environment.systemPackages = [
-                home-manager.packages.x86_64-linux.home-manager
+                home-manager.packages.${system}.home-manager
               ];
             }
           ];

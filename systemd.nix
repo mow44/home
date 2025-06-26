@@ -1,4 +1,5 @@
 {
+  system,
   pkgs,
   wallpapersDir,
   slstatus,
@@ -35,8 +36,9 @@
 
       Service = {
         Type = "simple";
+        # FIXME
         ExecStart = ''
-          ${slstatus.defaultPackage.x86_64-linux}/bin/slstatus
+          ${slstatus.defaultPackage.${system}}/bin/slstatus
         '';
         Restart = "always";
       };
