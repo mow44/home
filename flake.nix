@@ -30,7 +30,7 @@
     }:
     {
       makeHomeModule =
-        username: stateVersion: system:
+        userName: stateVersion: system:
         let
           pkgs = import nixpkgs { inherit system; };
 
@@ -59,7 +59,7 @@
                     ;
                 };
 
-                users.${username} = {
+                users.${userName} = {
                   imports = [
                     ./home.nix
                     ./git.nix
@@ -73,8 +73,8 @@
                     ./syncthing.nix
                   ];
                   home = {
-                    username = username;
-                    homeDirectory = "/home/${username}";
+                    username = userName;
+                    homeDirectory = "/home/${userName}";
                     stateVersion = stateVersion;
                   };
                 };
