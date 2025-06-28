@@ -1,7 +1,7 @@
 {
   pkgs,
   system,
-  wallpapersDir,
+  wallpapers,
   slstatus,
   ...
 }:
@@ -19,7 +19,7 @@
       Service = {
         Type = "oneshot";
         ExecStart = ''
-          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ${wallpapersDir} \( -type f -o -type l \) | ${pkgs.busybox}/bin/shuf -n 1)"'
+          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ${wallpapers} \( -type f -o -type l \) | ${pkgs.busybox}/bin/shuf -n 1)"'
         '';
       };
 
