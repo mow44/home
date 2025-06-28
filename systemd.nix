@@ -36,9 +36,8 @@
 
       Service = {
         Type = "simple";
-        # FIXME
         ExecStart = ''
-          ${slstatus.defaultPackage.${system}}/bin/slstatus
+          ${slstatus.packages.${system}.default}/bin/slstatus
         '';
         Restart = "always";
       };
