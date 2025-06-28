@@ -22,7 +22,7 @@
         #   ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ${wallpapers} \( -type f -o -type l \) | ${pkgs.busybox}/bin/shuf -n 1)"'
         # '';
         ExecStart = ''
-          ${pkgs.runtimeShell} ${scripts}/bin/set-wallpaper
+          ${scripts.packages.${system}.default}/bin/set-wallpaper
         '';
       };
 
