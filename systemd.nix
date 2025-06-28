@@ -3,6 +3,7 @@
   system,
   wallpapers,
   slstatus,
+  scripts,
   ...
 }:
 {
@@ -15,11 +16,13 @@
         PartOf = [ "graphical-session.target" ];
       };
 
-      # TODO call script from scripts-flake. and make flake for wallpapers so it will be accessable from scripts-flake
       Service = {
         Type = "oneshot";
+        # ExecStart = ''
+        #   ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ${wallpapers} \( -type f -o -type l \) | ${pkgs.busybox}/bin/shuf -n 1)"'
+        # '';
         ExecStart = ''
-          ${pkgs.runtimeShell} -c '${pkgs.hsetroot}/bin/hsetroot -fill "$(${pkgs.busybox}/bin/find ${wallpapers} \( -type f -o -type l \) | ${pkgs.busybox}/bin/shuf -n 1)"'
+          ${scripts}/bin/set-wallpaper
         '';
       };
 

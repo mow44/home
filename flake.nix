@@ -30,6 +30,15 @@
         flake-utils.follows = "flake-utils";
       };
     };
+
+    scripts = {
+      url = "github:mow44/scripts/main";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        wallpapers.follows = "wallpapers";
+      };
+    };
   };
 
   outputs =
@@ -38,6 +47,7 @@
       helix,
       wallpapers,
       slstatus,
+      scripts,
       ...
     }:
     {
@@ -56,6 +66,7 @@
                   helix
                   wallpapers
                   slstatus
+                  scripts
                   ;
               };
 
