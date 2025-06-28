@@ -31,6 +31,7 @@
       home-manager,
       helix,
       slstatus,
+      ...
     }:
     {
       makeHomeModule =
