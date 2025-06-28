@@ -15,14 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wallpapers = {
-      url = "github:mow44/wallpapers/main";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
     slstatus = {
       url = "github:mow44/slstatus/main";
       inputs = {
@@ -36,7 +28,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
-        wallpapers.follows = "wallpapers";
       };
     };
   };
@@ -45,7 +36,6 @@
     {
       home-manager,
       helix,
-      wallpapers,
       slstatus,
       scripts,
       ...
@@ -64,7 +54,6 @@
                 inherit
                   system
                   helix
-                  wallpapers
                   slstatus
                   scripts
                   ;
