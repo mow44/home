@@ -16,6 +16,7 @@
       bat
       bluetuith
       bottom
+      btop
       clinfo
       cmus
       corefonts
