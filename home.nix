@@ -17,6 +17,7 @@
       bluetuith
       bottom
       btop
+      chatterino2
       clinfo
       cmus
       corefonts
