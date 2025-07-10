@@ -5,7 +5,7 @@
     font = {
       # name = "DroidSansMNerdFontMono";
       # name = "AtkynsonMono Nerd Font Mono";
-      name = "JetBrains Mono"; # FIXME
+      name = "JetBrainsMono Nerd Font Mono"; # FIXME
       size = 12;
     };
     settings = {

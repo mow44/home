@@ -170,7 +170,8 @@ in
       };
       fonts = {
         default_size = "12pt";
-        default_family = "AtkynsonMono Nerd Font Mono";
+        # default_family = "AtkynsonMono Nerd Font Mono";
+        default_family = "JetBrainsMono Nerd Font Mono";
 
         contextmenu = "default_size default_family";
       };
