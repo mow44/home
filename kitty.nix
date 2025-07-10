@@ -4,7 +4,8 @@
     themeFile = "gruvbox-dark";
     font = {
       # name = "DroidSansMNerdFontMono";
-      name = "AtkynsonMono Nerd Font Mono";
+      # name = "AtkynsonMono Nerd Font Mono";
+      name = "JetBrains Mono"; # FIXME
       size = 12;
     };
     settings = {
