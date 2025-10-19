@@ -53,6 +53,7 @@
       vistafonts
       vlc
       walk
+      wireguard-tools
       xclip
     ];
   };
