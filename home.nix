@@ -50,7 +50,7 @@
       telegram-desktop
       v2raya
       vesktop
-      vistafonts
+      vista-fonts
       vlc
       walk
       wireguard-tools
