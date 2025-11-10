@@ -4,7 +4,9 @@
     enable = true;
     package = helix.packages."${pkgs.system}".helix;
     extraPackages = [
-      pkgs.rustup
+      pkgs.rustc
+      pkgs.rust-analyzer
+      # pkgs.rustup
       pkgs.gcc # for rust lsp in helix
       pkgs.nodePackages.prettier
       pkgs.nodePackages.typescript-language-server
