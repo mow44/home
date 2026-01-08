@@ -22,11 +22,12 @@ in
       # https://wiki.archlinux.org/title/Chromium#Force_GPU_acceleration
       qt.args = [
         # "disable-gpu" # causes crashes on chatgpt website
-        "disable-software-rasterizer"
-        "disable-accelerated-video-decode"
-        "disable-accelerated-video-encode"
-        "disable-accelerated-2d-canvas"
-        "disable-gpu-compositing"
+
+        # "disable-software-rasterizer"
+        # "disable-accelerated-video-decode"
+        # "disable-accelerated-video-encode"
+        # "disable-accelerated-2d-canvas"
+        # "disable-gpu-compositing"
       ];
 
       content = {
@@ -178,26 +179,26 @@ in
     };
 
     greasemonkey = [
-      (pkgs.writeText "youtube-adb.js" ''
-        // ==UserScript==
-        // @name         Auto Skip YouTube Ads
-        // @version      1.1.0
-        // @description  Speed up and skip YouTube ads automatically
-        // @author       jso8910 and others
-        // @match        *://*.youtube.com/*
-        // ==/UserScript==
+      # (pkgs.writeText "youtube-adb.js" ''
+      #   // ==UserScript==
+      #   // @name         Auto Skip YouTube Ads
+      #   // @version      1.1.0
+      #   // @description  Speed up and skip YouTube ads automatically
+      #   // @author       jso8910 and others
+      #   // @match        *://*.youtube.com/*
+      #   // ==/UserScript==
 
-        document.addEventListener('load', () => {
-            const btn = document.querySelector('.videoAdUiSkipButton,.ytp-ad-skip-button-modern')
-            if (btn) {
-                btn.click()
-            }
-            const ad = [...document.querySelectorAll('.ad-showing')][0];
-            if (ad) {
-                document.querySelector('video').currentTime = 9999999999;
-            }
-        }, true);
-      '')
+      #   document.addEventListener('load', () => {
+      #       const btn = document.querySelector('.videoAdUiSkipButton,.ytp-ad-skip-button-modern')
+      #       if (btn) {
+      #           btn.click()
+      #       }
+      #       const ad = [...document.querySelectorAll('.ad-showing')][0];
+      #       if (ad) {
+      #           document.querySelector('video').currentTime = 9999999999;
+      #       }
+      #   }, true);
+      # '')
     ];
 
     extraConfig = ''
