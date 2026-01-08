@@ -34,6 +34,7 @@
       keepassxc
       krita
       libreoffice-qt
+      librewolf
       lm_sensors
       maim
       nix-output-monitor
