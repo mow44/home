@@ -24,6 +24,7 @@
         bufferline = "always";
         cursorline = true;
         mouse = true;
+        rulers = [ 80 ];
         search = {
           smart-case = false;
         };
